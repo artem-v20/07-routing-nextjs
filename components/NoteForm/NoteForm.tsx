@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createNote } from '../../lib/api';
 import { ErrorMessage, Field, Form, Formik, type FormikHelpers } from 'formik';
+import { RiTelegram2Fill } from 'react-icons/ri';
 import css from './NoteForm.module.css';
 import * as Yup from 'yup';
-import { RiTelegram2Fill } from 'react-icons/ri';
 
 interface FormValues {
   title: string;
