@@ -8,9 +8,7 @@ import Modal from '@/components/Modal/Modal';
 import React from 'react';
 import Loading from '@/app/notes/filter/[...slug]/loading';
 
-type NotePreviewProps = object;
-
-const NotePreview: React.FC<NotePreviewProps> = () => {
+const NotePreview = () => {
   const router = useRouter();
   const handleClose = () => {
     router.back();
