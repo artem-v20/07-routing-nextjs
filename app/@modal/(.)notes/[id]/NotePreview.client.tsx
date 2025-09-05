@@ -8,7 +8,9 @@ import Modal from '@/components/Modal/Modal';
 import React from 'react';
 import Loading from '@/app/notes/filter/[...slug]/loading';
 
-const NotePreview = () => {
+type NotePreviewProps = object;
+
+const NotePreview: React.FC<NotePreviewProps> = () => {
   const router = useRouter();
   const handleClose = () => {
     router.back();
@@ -24,8 +26,6 @@ const NotePreview = () => {
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
   });
-
-  if (error) throw error;
 
   return (
     <Modal closeModal={handleClose}>
@@ -45,7 +45,7 @@ const NotePreview = () => {
         </div>
       )}
       {isLoading && <Loading />}
-      {!note && <p>Something went wrong.</p>}
+      {error && <p>Something went wrong.</p>}
     </Modal>
   );
 };

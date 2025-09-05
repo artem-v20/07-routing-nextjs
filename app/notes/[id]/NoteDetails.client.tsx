@@ -18,8 +18,6 @@ const NoteDetailsClient = () => {
     refetchOnMount: false,
   });
 
-  if (error) throw error;
-
   return (
     <>
       {note && (
@@ -30,11 +28,12 @@ const NoteDetailsClient = () => {
             </div>
             <p className={css.content}>{note.content}</p>
             <p className={css.date}>{note.createdAt}</p>
+            <p className={css.tag}>{note.tag}</p>
           </div>
         </div>
       )}
       {isLoading && <Loading />}
-      {!note && <p>Something went wrong.</p>}
+      {error && <p>Something went wrong.</p>}
     </>
   );
 };
